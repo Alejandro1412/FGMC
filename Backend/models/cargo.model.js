@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 var cargoSchema = new mongoose.Schema({
-    nombre:{type: String, required: [true, 'El es requerido']},
+    nombreCargo:{type: String, required: [true, 'El cargo es requerido']},
+    idArea:{type: Number},
     date: { type: Date, default: Date.now }
 });
 

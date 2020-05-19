@@ -11,6 +11,7 @@ app.use(morgan('dev'));
 app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR LO ENTIENDA EL SERVIDOR
 
 //RUTAS SERVIDOR
+app.use('/api/usuarios',require('./routes/usuario.routes'));
 
 //INICIAR SERVIDOR
 app.listen(app.get('port'), () => {

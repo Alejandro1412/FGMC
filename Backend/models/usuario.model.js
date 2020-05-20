@@ -9,7 +9,7 @@ let validRoles = {
 var usuarioSchema = new mongoose.Schema({
     nombre: { type: String, required: [true, 'Un nombre es requerido'] },
     apellido: { type: String, required: [true, 'Un Apellido es requerido'] },
-    Rol: {  type: String, required: [true, 'Un rol es requerido'], enum: validRoles },
+    rol: {  type: String, required: [true, 'Un rol es requerido'], enum: validRoles },
     email: { type: String, unique: true, required: [true, 'Un E-mail es requerido'] },
     contraseña: { type: String, required: [true, 'Su password es requerida'] },
     date: { type: Date, default: Date.now }

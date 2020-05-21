@@ -21,7 +21,7 @@ usuarioCtrl.getUsuario = async(req, res) => {
 usuarioCtrl.editUsuario = async(req, res) => {
     const {id} = req.params;
     await Usuario.findByIdAndUpdate(id, req.body,{new: true});
-    res.json({ESTADO: 'USUARIO ACTUALIZADO'});
+     res.json({ESTADO: 'USUARIO ACTUALIZADO'});
 };
 
 usuarioCtrl.deleteUsuario = async(req, res) => { 

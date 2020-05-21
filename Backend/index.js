@@ -13,6 +13,10 @@ app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR LO ENTIEND
 //RUTAS SERVIDOR
 app.use('/api/usuarios',require('./routes/usuario.routes'));
 
+app.get('/', (req, res) => {
+    res.send('<h1> ESTE ES EL BACKEND DE LA FUNDACION GIMNASIO MODERNO DEL CAUCA</h1>');
+});
+
 //INICIAR SERVIDOR
 app.listen(app.get('port'), () => {
     console.log('SERVIDOR EN PUERTO ', app.get('port'));//MUESTRO EN CONSOLA DONDE ESTA CONECTANDOSE MI BD

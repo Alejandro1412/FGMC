@@ -6,9 +6,10 @@ const { mongoose } = require('./database');//
 
 //CONFIGURACION SERVIDOR
 app.set('port', process.env.PORT||3000);//MENCIONO SI HAY UN PUERTO LIBRE LO TOME;SINO TOME EL 3000
-//MIDDLEWARES:CONVERSION O MODULOS
+//MIDDLEWARES:CONVERSION O MODULOS-FUNCIONES QUE SE DISPARAN CADA QUE PASA X AHI EL CODIGO
 app.use(morgan('dev'));
-app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR LO ENTIENDA EL SERVIDOR
+app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR ENTIENDA JSONS
+app.use(express.urlencoded({ extended: false })); //POSTMAN PRUEBA EN CAJAS
 
 //RUTAS SERVIDOR
 app.use('/api/usuarios',require('./routes/usuario.routes'));

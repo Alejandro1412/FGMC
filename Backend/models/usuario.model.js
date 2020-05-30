@@ -1,27 +1,26 @@
 const mongoose = require('mongoose');
-//const uniqueValidator = require('mongoose-unique-validator');
 
-let validRoles = {
-    values: ['USER_ROLE','TH_ROLE', 'ENGINEER_ROLE'],
-    message: '{VALUE} NO ES UN ROL VALIDO'
-}
-
-var usuarioSchema = new mongoose.Schema({
-    nombre: { type: String, required: [true, 'Un nombre es requerido'] },
-    apellido: { type: String, required: [true, 'Un Apellido es requerido'] },
-    rol: {  type: String, default: 'USER_ROLE', enum: validRoles },
-    email: { type: String, unique: true, required: [true, 'Un E-mail es requerido'] },
-    contraseña: { type: String, required: [true, 'Su password es requerida'] },
+let contratosSchema = new mongoose.Schema({
+    nombreContrato: { type: String, required: [true, 'El nombre del contrato es requerido'] },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuarios', required: [true, 'UN USUARIO ID ES REQUERIDO'] },
+    lugarExpedicion: { type: String, required: [true, '']},
+    fechaNacimiento: { type: Date, required: [true, '']},
+    CajaCompensacion: { type: String, required: [true, '']},
+    afp_FondoPensiones: { type: String, required: [true, ''] },
+    eps: { type: String, required: [true, ''] },
+    fechaIngreso: { type: Date, required: [true, ''] },
+    fechaRetiro: { type: Date, required: [true, '']},
+    salario: { type: Number, required: [true, '']},
+    auxilioporTrayecto: { type: Number},
+    auxilioporTransporte: { type: Number},
+    cargo: { type: String },
+    titulo: { type: String, required: [true, '']},
+    universidad: { type: String, required: [true, ''] },
+    telefono: { type: Number, required: [true, ''] },
+    direccion: { type: String, required: [true, '']},
+    email: {type: String, required: [true, ''] },
+    observacion: { type: String },
     date: { type: Date, default: Date.now }
 });
 
-// userSchema.methods.encryptPassword = async(password) => {
-//     let salt = await bcrypt.genSalt(saltRounds);
-//     let hash = bcrypt.hash(password, salt);
-//     return hash;
-// }
-
-module.exports = mongoose.model('usuario', usuarioSchema);
-
-//usuarioSchema.plugin(uniqueValidator, { message: '{PATH} must be unique' })
-//module.exports = mongoose.model('usuario', usuarioSchema);
+module.exports = mongoose.model('contrato', contratosSchema);

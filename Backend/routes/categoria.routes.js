@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
+const categoriaCtrl = require('../controllers/categoria.controllers');
+const {verificaToken,verificaAdmin_Rol} = require('../middlewares/autenticacion');
 
-const categoria = require('../controllers/categoria.controller');
-
-router.get('/', categoria.getUsuarios);
-router.post('/', categoria.createUsuario);
-router.get('/:id', categoria.getUsuario);
-router.put('/:id', categoria.editUsuario);
-router.delete('/:id', categoria.deleteUsuario);
+router.get('/categorias',[verificaToken], categoriaCtrl.getCategorias);
+router.post('/categoria',[verificaToken], categoriaCtrl.createCategoria);
+router.get('/categoria/:id',[verificaToken,verificaAdmin_Rol], categoriaCtrl.getCategoria);
+router.put('/categoria/:id',[verificaToken,verificaAdmin_Rol], categoriaCtrl.editCategoria);
+router.delete('/categoria/:id',[verificaToken,verificaAdmin_Rol], categoriaCtrl.deleteCategoria);
 
 module.exports = router;

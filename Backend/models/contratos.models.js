@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
-var contratosSchema = new mongoose.Schema({
+let contratosSchema = new mongoose.Schema({
     nombreContrato: { type: String, required: [true, 'El nombre del contrato es requerido'] },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuarios', required: [true, 'UN USUARIO ID ES REQUERIDO'] },
     lugarExpedicion: { type: String, required: [true, '']},
     fechaNacimiento: { type: Date, required: [true, '']},
     CajaCompensacion: { type: String, required: [true, '']},
     afp_FondoPensiones: { type: String, required: [true, ''] },
-    eps: { type: Number, required: [true, ''] },
+    eps: { type: String, required: [true, ''] },
     fechaIngreso: { type: Date, required: [true, ''] },
     fechaRetiro: { type: Date, required: [true, '']},
     salario: { type: Number, required: [true, '']},
@@ -17,9 +18,9 @@ var contratosSchema = new mongoose.Schema({
     universidad: { type: String, required: [true, ''] },
     telefono: { type: Number, required: [true, ''] },
     direccion: { type: String, required: [true, '']},
-    correo: {type: String, required: [true, ''] },
+    email: {type: String, required: [true, ''] },
     observacion: { type: String },
     date: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('contratos', contratosSchema);
+module.exports = mongoose.model('contrato', contratosSchema);

@@ -1,12 +1,15 @@
-const UserModel = require('../models/usuario.model');
+const usuarioModel = require('../models/usuario.model');
 const bcrypt = require('bcrypt');
 const loginController = {}
+const jwt = require('jsonwebtoken');
+const _ = require('underscore');
+
 
 loginController.postLogin = (req, res) => {
 
     let body = req.body;
 
-    UserModel.findOne({ email: body.email }, (err, dbUser) => {
+    usuarioModel.findOne({ email: body.email }, (err, usuarioDb) => {
 
         if (err) {
             return res.status(500).json({
@@ -17,18 +20,18 @@ loginController.postLogin = (req, res) => {
             });
         }
 
-        if (!dbUser) {
+        if (!usuarioDb) {
             return res.status(400).json({
                 response: {
                     status: false,
                     err: {
-                        message: 'USUARIO O PASSWORD INCORRECTAS'
+                        message: 'USUARIO O PASSWORD INCORRECTAS 1'
                     }
                 }
             });
         }
 
-        if (!bcrypt.compareSync(body.password, dbUser.password)) {
+        if (!bcrypt.compareSync(body.password, usuarioDb.password)) {
             return res.status(400).json({
                 response: {
                     status: false,
@@ -38,6 +41,9 @@ loginController.postLogin = (req, res) => {
                 }
             });
         }
+        let token = jwt.sign({
+            usuario:usuarioDb
+        },process.env.SEED, {expiresIn:60*30});
 
         res.json({
             response: {
@@ -45,10 +51,10 @@ loginController.postLogin = (req, res) => {
                 description: "LOGIN EXITOSO"
             },
             responseDetail: {
-                token: '123',
-                dbUser
+                token,
+                usuario: usuarioDb
             }
-
+            
         });
 
     })

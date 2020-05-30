@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-var cargoSchema = new mongoose.Schema({
+let cargoSchema = new mongoose.Schema({
     nombreCargo:{type: String, required: [true, 'El cargo es requerido']},
-    idArea:{type: Number},
+    activeCargo: { type: Boolean, default: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuarios', required: [true, 'UN USUARIO ID ES REQUERIDO'] },
+    //idArea:{type: Number},
     date: { type: Date, default: Date.now }
 });
 

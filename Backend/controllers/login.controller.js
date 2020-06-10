@@ -25,7 +25,7 @@ loginController.postLogin = (req, res) => {
                 response: {
                     status: false,
                     err: {
-                        message: 'USUARIO O PASSWORD INCORRECTAS 1'
+                        message: 'USUARIO O PASSWORD INCORRECTAS '
                     }
                 }
             });
@@ -42,8 +42,8 @@ loginController.postLogin = (req, res) => {
             });
         }
         let token = jwt.sign({
-            usuario:usuarioDb
-        },process.env.SEED, {expiresIn:60*30});
+            usuario: usuarioDb
+        }, process.env.SEED, { expiresIn: 60 * 30 });
 
         res.json({
             response: {
@@ -54,7 +54,7 @@ loginController.postLogin = (req, res) => {
                 token,
                 usuario: usuarioDb
             }
-            
+
         });
 
     })

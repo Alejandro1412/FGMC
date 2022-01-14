@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 let rolesValidos = {
-    values: ['adminRol','ingeniero','talentoHumano','auxSena'],
+    values: ['adminRol','auxiliar'],
     message: '{VALUE} NO ES UN ROL VALIDO'
 }
 

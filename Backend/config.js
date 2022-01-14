@@ -31,7 +31,7 @@ process.env.SEED=process.env.SEED || 'seed-de-desarrollo';
 let urlDB;
 
 if (process.env.NODE_ENV === 'dev') {
-    urlDB = 'mongodb://localhost:27017/fgmc';
+    urlDB = 'mongodb+srv://AlejandroPolancoA:MongoAlejandro1@cluster0.u1rnn.mongodb.net/FGMC?retryWrites=true&w=majority';
 } else {
     urlDB = process.env.MONGO_URI;
 }

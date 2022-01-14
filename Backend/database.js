@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('./config');
 
-//const URI = 'mongodb://localhost:27017/fgmc'; //NOMBRE BD FGMC
+const URI = 'mongodb+srv://AlejandroPolancoA:MongoAlejandro1@cluster0.u1rnn.mongodb.net/FGMC?retryWrites=true&w=majority'; //NOMBRE BD FGMC
 mongoose.connect(process.env.URLDB,{useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false});//CORRIJO EL WARNING DE CONEXION
 
 var db = mongoose.connection;

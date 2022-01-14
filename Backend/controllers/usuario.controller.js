@@ -50,6 +50,7 @@ usuarioCtrl.getUsuarios = (req, res) => {
                         }
                     });
                 }
+                
 
                 Usuario.countDocuments({ activeUser: true }, (err, count) => {
                     return res.json({

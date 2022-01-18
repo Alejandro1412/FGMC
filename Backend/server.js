@@ -15,7 +15,7 @@ app.set('appName', 'FUNDACION GIMNASIO MODERNO DEL CAUCA');
 app.use(morgan('dev'));
 app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR ENTIENDA JSONS
 app.use(express.urlencoded({ extended: false })); //POSTMAN PRUEBA EN CAJAS
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 //app.use('/api/usuarios',require('./routes/usuario.routes'));
 //RUTA GLOBAL

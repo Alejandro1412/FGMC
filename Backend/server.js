@@ -1,5 +1,6 @@
 const express = require('express');//REQUIERO EXPRESS
 const morgan = require('morgan');///REQUIERO MORGAN-METODOS HTTP
+const bodyParser = require('body-parser')
 const cors = require('cors');
 var colors = require('colors');
 
@@ -16,6 +17,21 @@ app.use(morgan('dev'));
 app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR ENTIENDA JSONS
 app.use(express.urlencoded({ extended: false })); //POSTMAN PRUEBA EN CAJAS
 app.use(cors({ origin: 'http://localhost:3000' }));
+
+app.use(
+    bodyParser.json({
+        limit: '50mb'
+    })
+)
+
+app.use(
+    bodyParser.urlencoded({
+        limit: '50mb',
+        extended: true
+    })
+)
+
+app.use(express.static('./Backend/documentosSubidos'))
 
 //app.use('/api/usuarios',require('./routes/usuario.routes'));
 //RUTA GLOBAL

@@ -11,6 +11,8 @@ app.use(require('./categoria.routes'));
 app.use(require('./documento.routes'));
 app.use(require('./subirDocs.routes'));
 app.use(require('./egresado.routes'));
+app.use(require('./actividades.routes'));
+app.use(require('./presupuesto.routes'));
 
 
 app.get('/', (req, res) => {

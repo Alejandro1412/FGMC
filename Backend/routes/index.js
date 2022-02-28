@@ -10,6 +10,7 @@ app.use(require('./cargo.routes'));
 app.use(require('./categoria.routes'));
 app.use(require('./documento.routes'));
 app.use(require('./subirDocs.routes'));
+app.use(require('./egresado.routes'));
 
 
 app.get('/', (req, res) => {

@@ -13,6 +13,8 @@ app.use(require('./subirDocs.routes'));
 app.use(require('./egresado.routes'));
 app.use(require('./actividades.routes'));
 app.use(require('./presupuesto.routes'));
+app.use(require('./actividad.routes'));
+app.use(require('./accion_correctiva.routes'));
 
 
 app.get('/', (req, res) => {

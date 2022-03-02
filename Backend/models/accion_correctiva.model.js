@@ -5,7 +5,7 @@ let accionCorrectivaSchema = new mongoose.Schema(
         responsable: { type: String, required: [true, 'El responsable es requerido'] },
         gravedad: { type: String, required: [true, 'la gravedad es requerida'] },
         descripcionProblema: { type: String, required: [true, 'la descripción es requerida'] },
-        descpcionMejora: { type: String, required: [true, 'La descripción es requerido'] },
+        descripcionMejora: { type: String, required: [true, 'La descripción es requerido'] },
         fechaSolucion: { type: Date, required: [true, 'La fecha es requerida'] }
     },
     {

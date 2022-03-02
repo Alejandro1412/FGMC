@@ -18,7 +18,7 @@ exports.createNovedadAccionCorrectiva = (req, res) => {
     // res.send({data})
     model.create(data, (err, docs) => {
         if (err) {
-            res.status(422.).send({ error: 'Error nombre de la Actividad ya esta registrada' })
+            res.status(422.).send({ error: 'Error en los datos recibidos' })
         } else {
             res.send({ data: docs })
         }

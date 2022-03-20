@@ -3,6 +3,7 @@ const morgan = require('morgan');///REQUIERO MORGAN-METODOS HTTP
 const bodyParser = require('body-parser')
 const cors = require('cors');
 var colors = require('colors');
+const whiteList = ['http://localhost:3000','http://localhost:3001'];
 
 //---------inicializacion------------//
 const app = express();//LLAMO EXPRESS
@@ -16,7 +17,13 @@ app.set('appName', 'FUNDACION GIMNASIO MODERNO DEL CAUCA');
 app.use(morgan('dev'));
 app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR ENTIENDA JSONS
 app.use(express.urlencoded({ extended: false })); //POSTMAN PRUEBA EN CAJAS
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  } }));
 
 app.use(
     bodyParser.json({

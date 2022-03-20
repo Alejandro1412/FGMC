@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 app.use(express.json());//METODO QUE HACE QUE EL CODIGO DEL NAVEGADOR ENTIENDA JSONS
 app.use(express.urlencoded({ extended: false })); //POSTMAN PRUEBA EN CAJAS
 app.use(cors({ origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))

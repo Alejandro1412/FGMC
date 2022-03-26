@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 let contratosSchema = new mongoose.Schema({
+    nombrenomnreEmpleado: { type: String, required: [true, 'El nombre del empleado es requerido'] },
     nombreContrato: { type: String, required: [true, 'El nombre del contrato es requerido'] },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuarios', required: [true, 'UN USUARIO ID ES REQUERIDO'] },
     lugarExpedicion: { type: String, required: [true, '']},

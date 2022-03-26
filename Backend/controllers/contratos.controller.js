@@ -40,9 +40,9 @@ contratosCtrl.getContratos = (req, res) => {
 
 contratosCtrl.createContrato = (req, res) => {
 
-    const { nombreContrato,lugarExpedicion,fechaNacimiento,CajaCompensacion,afp_FondoPensiones, eps,fechaIngreso,fechaRetiro,salario,auxilioporTrayecto,auxilioporTransporte,cargo,titulo,universidad,telefono, direccion,email,observacion} = req.body;
+    const { nombreEmpleado,nombreContrato,lugarExpedicion,fechaNacimiento,CajaCompensacion,afp_FondoPensiones, eps,fechaIngreso,fechaRetiro,salario,auxilioporTrayecto,auxilioporTransporte,cargo,titulo,universidad,telefono, direccion,email,observacion} = req.body;
     let userId = req.usuario._id;
-    var contrato = new Contratos({ nombreContrato,lugarExpedicion,fechaNacimiento,CajaCompensacion,afp_FondoPensiones, eps,fechaIngreso,fechaRetiro,salario,auxilioporTrayecto,auxilioporTransporte,cargo,titulo,universidad,telefono, direccion,email,observacion,userId});
+    var contrato = new Contratos({ nombreEmpleado,nombreContrato,lugarExpedicion,fechaNacimiento,CajaCompensacion,afp_FondoPensiones, eps,fechaIngreso,fechaRetiro,salario,auxilioporTrayecto,auxilioporTransporte,cargo,titulo,universidad,telefono, direccion,email,observacion,userId});
 
     contrato.save((err, responseDetail) => {
 
